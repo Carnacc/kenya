@@ -1,0 +1,87 @@
+.third-section {
+    width: 100%;
+    height: 600px;
+    display: flex; /* Due colonne affiancate */
+    overflow: hidden; /* Evita che i contenuti sforino */
+}
+
+/* Colonna sinistra, suddivisa verticalmente in testo (in alto) e immagine (in basso) */
+.third-section-left {
+    flex: 1;               /* Occupa la metà sinistra */
+    display: flex;
+    flex-direction: column;  /* Dispone testo e immagine in verticale */
+    min-height: 0;           /* Per sicurezza, quando si usano flex annidate */
+}
+
+/* --- Testo in alto --- */
+.third-section-text-container {
+    flex: 1;                /* Usa lo spazio rimanente in verticale */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Sposta il testo in alto */
+    align-items: flex-start;
+    padding-left: 50px;
+    padding-top: 50px;
+    text-align: left;
+    /* Se il testo diventasse troppo lungo, puoi aggiungere uno scroll:
+       overflow: auto;  */
+}
+
+.third-section-title {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.third-section-subtitle {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #666;
+    max-width: 570px;
+}
+
+.third-section-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.third-section-button:hover {
+    background-color: #555;
+}
+
+/* --- Seconda immagine in basso a sinistra --- */
+.third-section-lower-image {
+    /* Altezza fissa in modo che non sfori i 600px totali.
+       Regola a tuo piacere (ad es. 150px, 200px, 250px) */
+    height: 200px;
+    overflow: hidden; /* Nasconde eventuale eccesso */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.third-section-lower-image-file {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Copre tutto lo spazio orizzontalmente */
+}
+
+/* --- Colonna destra, immagine principale --- */
+.third-section-image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.third-section-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

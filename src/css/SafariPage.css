@@ -1,0 +1,38 @@
+.safari-container {
+    margin: 0;
+    padding: 20px;
+    height: 700px;
+    background-image: url('../images/sfondo2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    max-width: 1280px;
+    margin: 0 auto;
+    min-width: 100%;
+}
+
+
+/* Stile del contenuto */
+.safari-content {
+    max-width: 600px;
+}
+
+/* Titolo principale */
+.safari-content h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Sottotitolo */
+.safari-content p {
+    font-size: 20px;
+    margin-bottom: 20px;
+}

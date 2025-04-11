@@ -1,0 +1,190 @@
+/* Contenitore principale del componente */
+.photoGalleryContainer {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .photoGalleryContainer h2 {
+    font-size: 32px;
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+  
+  /* Mosaico */
+  .photoMosaicGallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 200px;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .photoGalleryItem {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Immagini */
+  .photoGalleryItem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .photoGalleryItem:hover img {
+    transform: scale(1.1);
+  }
+  
+  .photoGalleryItem::after {
+    content: "";
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .photoGalleryItem:hover::after {
+    opacity: 1;
+  }
+  
+  .photoGalleryItem::before {
+    content: attr(data-title);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: auto;
+    padding: 20px;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+    transition: all 0.3s ease;
+    z-index: 1;
+  }
+  
+  .photoGalleryItem:hover::before {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  
+  /* Layout personalizzato 
+     (modifica i :nth-child se vuoi un layout particolare) */
+  .photoMosaicGallery .photoGalleryItem:nth-child(1) {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+  }
+  .photoMosaicGallery .photoGalleryItem:nth-child(2) {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+  }
+  .photoMosaicGallery .photoGalleryItem:nth-child(3) {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+  }
+  .photoMosaicGallery .photoGalleryItem:nth-child(4) {
+    grid-column: 4 / 5;
+    grid-row: 1 / 2;
+  }
+  .photoMosaicGallery .photoGalleryItem:nth-child(5) {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  }
+  .photoMosaicGallery .photoGalleryItem:nth-child(6) {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+  }
+  .photoMosaicGallery .photoGalleryItem:nth-child(7) {
+    grid-column: 4 / 5;
+    grid-row: 2 / 3;
+  }
+  .photoMosaicGallery .photoGalleryItem:nth-child(8) {
+    grid-column: 1 / 5;
+    grid-row: 3 / 4;
+  }
+  
+  /* Lightbox */
+  .photoLightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
+  
+  .photoLightboxContent {
+    position: relative;
+    max-width: 80%;
+    max-height: 80%;
+    background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .photoLightboxImg {
+    max-width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+  }
+  
+  /* Pulsante chiusura (X) */
+  .photoClose {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 36px;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  /* Pulsanti freccia */
+  .photoPrev, .photoNext {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 40px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 5px;
+    transition: transform 0.2s;
+  }
+  
+  .photoPrev:hover, .photoNext:hover {
+    transform: translateY(-50%) scale(1.2);
+  }
+  
+  .photoPrev {
+    left: 20px;
+  }
+  
+  .photoNext {
+    right: 20px;
+  }
+  
+  /* Didascalia dell’immagine */
+  .photoLightboxCaption {
+    margin-top: 10px;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+  }
+  

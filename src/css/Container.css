@@ -1,0 +1,169 @@
+.container {
+    margin: 0;
+    padding: 20px;
+    height: 900px;
+    background-image: url('../images/sfondo1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    max-width: 1280px;
+    margin: 0 auto;
+    min-width: 100%;
+}
+
+
+/* Stile del contenuto */
+.content {
+    max-width: 600px;
+}
+
+/* Titolo principale */
+.content h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Sottotitolo */
+.content p {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+/* Contenitore pulsanti */
+.buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+/* Stile pulsanti */
+.cta {
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    width: 280.03px;
+    height: 48.67px;
+    color: white;
+    background-color: #ff8800;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cta:hover {
+    background-color: #cc6d00;
+}
+
+/* Stile pulsante secondario */
+.cta.secondary {
+    background-color: transparent;
+    border: 2px solid white;
+}
+
+.cta.secondary:hover {
+    background-color: white;
+    color: black;
+}
+
+
+
+
+
+
+
+.first-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.first-section-left,
+.first-section-right {
+    width: 48%; /* Ogni sezione occupa il 48% della larghezza */
+    padding: 10px;
+}
+
+.first-section-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;  /* Allinea il contenuto a sinistra */
+    justify-content: center;
+    position: relative;  /* Permette di posizionare il testo in relazione all'immagine */
+}
+
+.first-section-left .text-container {
+    text-align: left;  /* Allinea il testo a sinistra */
+    position: relative; /* Assicura che il testo non si sovrapponga */
+    padding: 10px;
+}
+
+.first-section-left img {
+    width: 400px; /* Imposta la larghezza dell'immagine al 100% del contenitore */
+    max-width: 600px; /* Imposta una larghezza massima per evitare che l'immagine diventi troppo grande */
+    height: 297.7px;
+    margin-bottom: 20px; /* Spazio tra l'immagine e il testo */
+    object-fit: cover; /* Allunga l'immagine senza distorcerla */
+}
+
+.first-section-left h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+.first-section-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: left;  /* Allinea il testo a sinistra */
+}
+
+.first-section-right .text-container {
+    text-align: left;  /* Allinea il testo a sinistra */
+    position: relative; /* Assicura che il testo non si sovrapponga */
+    padding: 10px;
+}
+
+.text-container h2 {
+    font-size: 32px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.first-section-right h2 {
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.first-section-right p {
+    font-weight: 200;
+}
+
+/* Stile pulsanti */
+.first-section-cta {
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    width: 254.03px;
+    height: 48.67px;
+    color: white;
+    background-color: #ff8800;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.first-section-cta:hover {
+    background-color: #cc6d00;
+}

@@ -1,0 +1,53 @@
+.second-section {
+    width: 100%;
+    height: 700px;
+    background-image: url('../images/alberi.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    /* Flexbox per centrare verticalmente (senza centrare orizzontalmente) */
+    display: flex;
+    align-items: center; /* Centra verticalmente */
+    margin-bottom: 0;
+}
+
+/* Contenitore del testo e del bottone */
+.content-wrapper {
+    /* Sposta il blocco verso sinistra con un margine */
+    margin-left: 50px;
+
+    /* Allinea il testo a sinistra */
+    text-align: left;
+    max-width: 500px; /* Regola la larghezza massima se vuoi un limite */
+}
+
+/* Titolo */
+.second-section-title {
+    font-size: 46px;
+    margin-bottom: 10px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Didascalia */
+.section-subtitle {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+/* Bottone */
+.section-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.section-button:hover {
+    background-color: #555;
+}

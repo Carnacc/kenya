@@ -1,0 +1,81 @@
+.myNavbarContainer {
+    height: 60px;
+    position: fixed; /* Mantieni la navbar fissa in cima alla pagina */
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    padding-top: 20px;
+    background: black;
+    backdrop-filter: blur(0.5px);
+    color: white;
+    z-index: 1000;
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Aggiungi transizione per un effetto fluido */
+  }
+  
+  /* Quando la navbar è nascosta */
+  .myNavbarContainer.myNavHidden {
+    transform: translateY(-100%); /* Nascondi la navbar sopra la pagina */
+    opacity: 0; /* Rendi la navbar trasparente quando è nascosta */
+  }
+  
+  /* Quando la navbar è visibile */
+  .myNavbarContainer.myNavVisible {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  /* Logo */
+  .myNavbarLogo {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 1.5em;
+  }
+  
+  .myNavbarLogo img {
+    height: 70px;
+  }
+  
+  /* Titolo */
+  .myNavbarTitle {
+    flex: 2;
+    font-family: 'Lilita One', cursive;
+    text-align: center;
+    font-size: 34px;
+  }
+  
+  /* Lista di link */
+  .myNavbarLinks {
+    flex: 1;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    padding: 20px;
+    margin-right: 10px;
+  }
+  
+  .myNavbarLinks li {
+    display: inline-block;
+  }
+  
+  /* Link e bottone del dropdown */
+  .myNavbarLinks a,
+  .dropbtn {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .myNavbarLinks a:hover {
+    color: #b39200;
+  }
+  
