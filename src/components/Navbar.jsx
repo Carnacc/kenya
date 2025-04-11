@@ -4,10 +4,6 @@ import logo from "../images/logo.png"; // Assicurati di avere il logo in questa 
 import Dropdown from "../components/DropDown";
 import { useNavigate } from "react-router-dom"; // Importa useNavigate
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
-</style>
-
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);  // Stato per monitorare la visibilità della navbar
