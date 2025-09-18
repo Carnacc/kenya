@@ -1,0 +1,127 @@
+.stats-bar {
+    background-color: #f0e9d6; /* Colore beige/sabbia */
+    padding: 60px 150px;
+  }
+  
+  .stats-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .stat-item {
+    padding: 0 15px;
+  }
+  
+  .stat-content {
+    display: flex;
+    align-items: center;
+  }
+  
+  .stat-icon-container {
+    margin-right: 15px;
+  }
+  
+  .stat-text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .stats-icon {
+    font-size: 32px;
+    color: #8b6d4d; /* Colore marrone/bronzo */
+  }
+  
+  .stat-number {
+    font-size: 28px;
+    font-weight: 600;
+    color: #8b6d4d; /* Colore marrone/bronzo */
+    line-height: 1.1;
+  }
+  
+  .stat-label {
+    font-size: 16px;
+    color: #8b8b8b; /* Colore grigio */
+    font-weight: 400;
+  }
+  
+  .stat-divider {
+    width: 1px;
+    height: 60px;
+    background-color: #d0c8b5; /* Colore beige più scuro per il divisore */
+  }
+  
+  /* Media queries per la responsività */
+  @media screen and (max-width: 992px) {
+    .stats-bar {
+      padding: 40px 80px;
+    }
+  
+    .stats-container {
+      padding: 0 20px;
+    }
+  
+    .stats-icon {
+      font-size: 28px;
+    }
+  
+    .stat-number {
+      font-size: 24px;
+    }
+  
+    .stat-label {
+      font-size: 14px;
+    }
+  
+    .stat-divider {
+      height: 50px;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .stats-bar {
+      padding: 30px 15px;
+    }
+  
+    .stats-container {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+  
+    .stat-item {
+      flex: 0 0 40%;
+    }
+  
+    .stat-divider {
+      display: none;
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .stats-bar {
+      padding: 25px 10px;
+    }
+  
+    .stats-container {
+      flex-direction: column;
+      gap: 25px;
+    }
+  
+    .stat-item {
+      flex: 0 0 100%;
+      width: 100%;
+    }
+  
+    .stats-icon {
+      font-size: 24px;
+    }
+  
+    .stat-number {
+      font-size: 22px;
+    }
+  }
+  

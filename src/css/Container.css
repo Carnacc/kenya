@@ -1,169 +1,354 @@
 .container {
-    margin: 0;
-    padding: 20px;
-    height: 900px;
-    background-image: url('../images/sfondo1.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    max-width: 1280px;
-    margin: 0 auto;
-    min-width: 100%;
+  margin: 0;
+  padding: 20px;
+  height: 900px; /* Mantengo l'altezza originale */
+  background-image: url("../images/sfondo1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box; /* Assicura che padding non aumenti la larghezza */
 }
-
 
 /* Stile del contenuto */
 .content {
-    max-width: 600px;
+  max-width: 600px;
+  width: 100%;
+  padding: 0 15px;
+  box-sizing: border-box;
 }
 
 /* Titolo principale */
 .content h1 {
-    font-size: 48px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 /* Sottotitolo */
 .content p {
-    font-size: 20px;
-    margin-bottom: 20px;
+  font-size: 20px;
+  margin-bottom: 20px;
 }
 
 /* Contenitore pulsanti */
 .buttons {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
 }
 
 /* Stile pulsanti */
 .cta {
-    padding: 12px 24px;
-    font-size: 18px;
-    font-weight: bold;
-    width: 280.03px;
-    height: 48.67px;
-    color: white;
-    background-color: #ff8800;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: bold;
+  width: 280.03px;
+  height: 48.67px;
+  color: white;
+  background-color: #ff8800;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cta:hover {
-    background-color: #cc6d00;
+  background-color: #cc6d00;
 }
 
 /* Stile pulsante secondario */
 .cta.secondary {
-    background-color: transparent;
-    border: 2px solid white;
+  background-color: transparent;
+  border: 2px solid white;
+  font-size: 17px;
 }
 
 .cta.secondary:hover {
-    background-color: white;
-    color: black;
+  background-color: white;
+  color: black;
 }
 
-
-
-
-
-
-
+/* Manteniamo le regole base della first-section */
 .first-section {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: white;
+  max-width: 1280px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .first-section-left,
 .first-section-right {
-    width: 48%; /* Ogni sezione occupa il 48% della larghezza */
-    padding: 10px;
+  width: 48%; /* Ogni sezione occupa il 48% della larghezza */
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .first-section-left {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;  /* Allinea il contenuto a sinistra */
-    justify-content: center;
-    position: relative;  /* Permette di posizionare il testo in relazione all'immagine */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Allinea il contenuto a sinistra */
+  justify-content: center;
+  position: relative; /* Permette di posizionare il testo in relazione all'immagine */
 }
 
 .first-section-left .text-container {
-    text-align: left;  /* Allinea il testo a sinistra */
-    position: relative; /* Assicura che il testo non si sovrapponga */
-    padding: 10px;
+  text-align: left; /* Allinea il testo a sinistra */
+  position: relative; /* Assicura che il testo non si sovrapponga */
+  padding: 10px;
+  width: 100%;
 }
 
 .first-section-left img {
-    width: 400px; /* Imposta la larghezza dell'immagine al 100% del contenitore */
-    max-width: 600px; /* Imposta una larghezza massima per evitare che l'immagine diventi troppo grande */
-    height: 297.7px;
-    margin-bottom: 20px; /* Spazio tra l'immagine e il testo */
-    object-fit: cover; /* Allunga l'immagine senza distorcerla */
+  width: 400px; /* Mantengo la larghezza originale */
+  height: 297.7px; /* Mantengo l'altezza originale */
+  margin-bottom: 20px; 
+  object-fit: cover; /* Allunga l'immagine senza distorcerla */
+  object-position: center 38%;
+  border-radius: 5px;
 }
 
 .first-section-left h2 {
-    margin-top: 0;
-    margin-bottom: 10px;
-    font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-weight: 400;
 }
 
 .first-section-right {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: left;  /* Allinea il testo a sinistra */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Cambiato da center a flex-start per allineare meglio con il layout */
+  justify-content: center;
+  text-align: left; /* Allinea il testo a sinistra */
 }
 
 .first-section-right .text-container {
-    text-align: left;  /* Allinea il testo a sinistra */
-    position: relative; /* Assicura che il testo non si sovrapponga */
-    padding: 10px;
+  text-align: left; /* Allinea il testo a sinistra */
+  position: relative; /* Assicura che il testo non si sovrapponga */
+  padding: 10px;
+  width: 100%;
 }
 
 .text-container h2 {
-    font-size: 32px;
-    font-weight: 400;
-    margin: 0;
+  font-size: 32px;
+  font-weight: 400;
+  margin: 0;
 }
 
 .first-section-right h2 {
-    margin-bottom: 20px;
-    font-weight: 400;
+  margin-bottom: 20px;
+  font-weight: 400;
 }
 
 .first-section-right p {
-    font-weight: 200;
+  font-weight: 200;
 }
 
 /* Stile pulsanti */
 .first-section-cta {
-    padding: 12px 24px;
-    font-size: 18px;
-    font-weight: bold;
-    width: 254.03px;
-    height: 48.67px;
-    color: white;
-    background-color: #ff8800;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: bold;
+  width: 254.03px;
+  height: 48.67px;
+  color: white;
+  background-color: #ff8800;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .first-section-cta:hover {
-    background-color: #cc6d00;
+  background-color: #cc6d00;
+}
+
+/* Media queries per la responsività - solo modifiche minime necessarie */
+@media screen and (max-width: 1024px) {
+  .container {
+    height: auto;
+    min-height: 700px; /* Altezza minima per schermi più piccoli */
+  }
+
+  .content h1 {
+    font-size: 42px;
+  }
+
+  .content p {
+    font-size: 18px;
+  }
+}
+
+/* Aggiorniamo le media queries per la first-section */
+@media screen and (max-width: 1200px) {
+  .first-section {
+    padding: 20px 15px;
+  }
+
+  .first-section-left img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    object-fit: cover;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .text-container h2 {
+    font-size: 28px;
+  }
+
+  .first-section-right p {
+    font-size: 15px;
+  }
+
+  .first-section-cta {
+    width: 220px;
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .first-section {
+    flex-direction: column;
+  }
+
+  .first-section-left,
+  .first-section-right {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .first-section-left {
+    align-items: center; /* Centra l'immagine su mobile */
+  }
+
+  .first-section-left .text-container {
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  .first-section-left img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+  }
+
+  .first-section-right {
+    align-items: center;
+  }
+
+  .first-section-right .text-container {
+    text-align: left;
+  }
+
+  .first-section-right h2 {
+    text-align: left;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .first-section {
+    flex-direction: column;
+  }
+
+  .first-section-left,
+  .first-section-right {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .first-section-left img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .content h1 {
+    font-size: 36px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .first-section {
+    padding: 15px 10px;
+  }
+
+  .text-container h2 {
+    font-size: 24px;
+  }
+
+  .first-section-right p {
+    font-size: 14px;
+  }
+
+  .first-section-cta {
+    width: 100%;
+    max-width: 254px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta {
+    width: 100%;
+    max-width: 280px;
+    margin-bottom: 10px;
+  }
+
+  .content h1 {
+    font-size: 32px;
+  }
+
+  .content p {
+    font-size: 16px;
+  }
+
+  .first-section-cta {
+    width: 100%;
+    max-width: 254px;
+  }
+
+  .text-container h2 {
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .first-section-left img {
+    max-width: 100%;
+  }
+
+  .text-container h2 {
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    min-height: 600px;
+  }
+
+  .content h1 {
+    font-size: 28px;
+  }
 }

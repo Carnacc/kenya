@@ -1,81 +1,249 @@
-.myNavbarContainer {
-    height: 60px;
-    position: fixed; /* Mantieni la navbar fissa in cima alla pagina */
+.navbar-due {
+  height: auto;
+  min-height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background: black;
+  backdrop-filter: blur(0.5px);
+  color: white;
+  z-index: 1000;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  box-sizing: border-box;
+}
+
+.navbar-due.hidden-due {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.navbar-due.visible-due {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.logo-due {
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.logo-due img {
+  height: 70px;
+  width: auto;
+}
+
+.title-container-due {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.title-due {
+  font-family: "Lilita One", cursive;
+  font-size: 34px;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.nav-links-container-due {
+  width: 25%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.nav-links-due {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links-due li {
+  display: flex;
+  white-space: nowrap;
+}
+
+.nav-links-due a,
+.dropbtn-due {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-links-due a:hover {
+  color: #b39200;
+}
+
+.mobile-menu-toggle-due {
+  display: none;
+  cursor: pointer;
+  z-index: 1001;
+  margin-left: 20px;
+}
+
+.hamburger-due {
+  width: 30px;
+  height: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hamburger-due span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.hamburger-due.active-due span:nth-child(1) {
+  transform: translateY(8.5px) rotate(45deg);
+}
+
+.hamburger-due.active-due span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-due.active-due span:nth-child(3) {
+  transform: translateY(-8.5px) rotate(-45deg);
+}
+
+@media screen and (min-width: 1441px) {
+  .navbar-due {
+    padding: 15px 5%;
+  }
+
+  .logo-due img {
+    height: 80px;
+  }
+
+  .title-due {
+    font-size: 40px;
+  }
+
+  .nav-links-due {
+    gap: 30px;
+  }
+
+  .nav-links-due a,
+  .dropbtn-due {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 1171px) and (max-width: 1440px) {
+  .navbar-due {
+    padding: 10px 3%;
+  }
+}
+
+@media screen and (max-width: 1170px) {
+  .mobile-menu-toggle-due {
+    display: block;
+  }
+
+  .nav-links-due {
+    position: fixed;
     top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
+    right: -100%;
+    width: 300px;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    padding: 0;
-    padding-top: 20px;
-    background: black;
-    backdrop-filter: blur(0.5px);
-    color: white;
-    z-index: 1000;
-    transition: transform 0.3s ease, opacity 0.3s ease; /* Aggiungi transizione per un effetto fluido */
+    justify-content: flex-start;
+    gap: 30px;
+    transition: right 0.3s ease;
+    padding: 80px 0;
+    margin: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
   }
-  
-  /* Quando la navbar è nascosta */
-  .myNavbarContainer.myNavHidden {
-    transform: translateY(-100%); /* Nascondi la navbar sopra la pagina */
-    opacity: 0; /* Rendi la navbar trasparente quando è nascosta */
+
+  .nav-links-due.mobile-active-due {
+    right: 0;
   }
-  
-  /* Quando la navbar è visibile */
-  .myNavbarContainer.myNavVisible {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  
-  /* Logo */
-  .myNavbarLogo {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    height: 100%;
-    padding: 1.5em;
-  }
-  
-  .myNavbarLogo img {
-    height: 70px;
-  }
-  
-  /* Titolo */
-  .myNavbarTitle {
-    flex: 2;
-    font-family: 'Lilita One', cursive;
+
+  .nav-links-due li {
+    display: block;
     text-align: center;
-    font-size: 34px;
   }
-  
-  /* Lista di link */
-  .myNavbarLinks {
-    flex: 1;
-    list-style: none;
-    display: flex;
-    justify-content: flex-end;
-    gap: 20px;
-    padding: 20px;
-    margin-right: 10px;
+
+  .nav-links-due a,
+  .dropbtn-due {
+    font-size: 18px;
   }
-  
-  .myNavbarLinks li {
-    display: inline-block;
+}
+
+@media screen and (max-width: 1023px) {
+  .title-due {
+    font-size: 28px;
   }
-  
-  /* Link e bottone del dropdown */
-  .myNavbarLinks a,
-  .dropbtn {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    background: none;
-    border: none;
-    cursor: pointer;
+
+  .logo-due img {
+    height: 60px;
   }
-  
-  .myNavbarLinks a:hover {
-    color: #b39200;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar-due {
+    padding: 10px 15px;
   }
-  
+
+  .title-due {
+    font-size: 24px;
+  }
+
+  .logo-due img {
+    height: 50px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .navbar-due {
+    padding: 8px 10px;
+  }
+
+  .title-due {
+    font-size: 20px;
+  }
+
+  .logo-due img {
+    height: 40px;
+  }
+
+  .nav-links-due {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .title-due {
+    font-size: 18px;
+  }
+
+  .logo-due img {
+    height: 35px;
+  }
+
+  .nav-links-due {
+    width: 90%;
+  }
+}

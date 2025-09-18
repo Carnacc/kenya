@@ -1,56 +1,102 @@
-import React, { useState, useEffect } from "react";
-import "../css/Navbar.css";
-import logo from "../images/logo.png"; // Assicurati di avere il logo in questa posizione
-import Dropdown from "../components/DropDown";
-import { useNavigate } from "react-router-dom"; // Importa useNavigate
+// Navbar.jsx
+"use client"
 
-function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);  // Stato per monitorare la visibilità della navbar
-  let lastScrollY = 0;
+import { useState, useEffect, useRef, forwardRef, useImperativeHandle } from "react"
+import "../css/Navbar.css"
+import logo from "../images/logo.png"
+import Dropdown from "../components/DropDown"
+import { useNavigate } from "react-router-dom"
 
-  const handleScroll = () => {
-    // Se scorriamo verso il basso, nascondiamo la navbar
-    if (window.scrollY > lastScrollY && window.scrollY > 50) {
-      setIsVisible(false);
-    } else if (window.scrollY < lastScrollY && window.scrollY <= 50) {
-      // Se scorriamo verso l'alto ma siamo vicini alla parte superiore della pagina, mostriamo la navbar
-      setIsVisible(true);
+const Navbar = forwardRef((props, ref) => {
+  const [isVisible, setIsVisible] = useState(true)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [windowWidth, setWindowWidth] = useState(typeof window !== "undefined" ? window.innerWidth : 0)
+  const menuRef = useRef(null)
+  const hamburgerRef = useRef(null)
+  const lastScrollY = useRef(window.scrollY)
+  const dropdownRef = useRef(null)
+  const mobileDropdownRef = useRef(null)
+
+  const navigate = useNavigate()
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen)
+  }
+
+  useImperativeHandle(ref, () => ({
+    openDropdown: () => {
+      dropdownRef.current?.open()
+      mobileDropdownRef.current?.open()
+      if (windowWidth <= 1170) {
+        setIsMobileMenuOpen(true)
+      }
     }
-    lastScrollY = window.scrollY;
-  };
+  }))
 
   useEffect(() => {
-    // Aggiungi l'event listener per lo scroll
-    window.addEventListener("scroll", handleScroll);
-
-    // Rimuovi l'event listener quando il componente viene smontato
+    window.addEventListener("scroll", handleScroll)
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth)
+      if (window.innerWidth > 1170 && isMobileMenuOpen) setIsMobileMenuOpen(false)
+    }
+    const handleClickOutside = (event) => {
+      const outsideMenu = menuRef.current && !menuRef.current.contains(event.target)
+      const outsideHamburger = hamburgerRef.current && !hamburgerRef.current.contains(event.target)
+      if (outsideMenu && outsideHamburger) setIsMobileMenuOpen(false)
+    }
+    window.addEventListener("resize", handleResize)
+    document.addEventListener("mousedown", handleClickOutside)
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+      window.removeEventListener("scroll", handleScroll)
+      window.removeEventListener("resize", handleResize)
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [isMobileMenuOpen])
 
-  const navigate = useNavigate(); // Inizializza il navigatore
+  const handleScroll = () => {
+    if (window.scrollY > lastScrollY.current && window.scrollY > 220) {
+      setIsVisible(false)
+      setIsMobileMenuOpen(false)
+    } else if (window.scrollY < lastScrollY.current && window.scrollY <= 50) {
+      setIsVisible(true)
+    }
+    lastScrollY.current = window.scrollY
+  }
 
   return (
     <nav className={`navbar ${isVisible ? "visible" : "hidden"}`}>
       <div className="logo">
-        <img src={logo} alt="Logo" />
+        <img src={logo || "/placeholder.svg?height=70&width=70"} alt="Logo" onClick={() => navigate("/")} style={{ cursor: "pointer" }}/>
       </div>
-      <div>
-      <h1 className="title">Kenya con Falcone</h1>
+      <div className="title-container">
+        <h1 className="title">Kenya con Falcone</h1>
       </div>
-      <ul className="nav-links">
-        <li><a href="#" onClick={() => navigate("/home")}>Home</a></li>
-      
-       <li> <Dropdown /></li>
-
-        <li><a href="#">Chi siamo</a></li>
-        <li><a href="#" onClick={() => navigate("/contatti")}>Contatti</a></li>
-        
-      </ul>
+      <div className="nav-links-container">
+        {windowWidth > 1170 ? (
+          <ul className="nav-links">
+            <li><a href="#" onClick={() => navigate("/")}>Home</a></li>
+            <li className="dropdown-container"><Dropdown ref={dropdownRef} isMobile={false} /></li>
+            <li><a href="#" onClick={() => navigate("/chi-siamo")}>Chi siamo</a></li>
+            <li><a href="#" onClick={() => navigate("/contatti")}>Contatti</a></li>
+          </ul>
+        ) : (
+          <>
+            <div ref={hamburgerRef} className="mobile-menu-toggle" onClick={toggleMobileMenu}>
+              <div className={`hamburger ${isMobileMenuOpen ? "active" : ""}`}>
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+            <ul ref={menuRef} className={`nav-links ${isMobileMenuOpen ? "mobile-active" : ""}`}>
+              <li><a href="#" onClick={() => { navigate("/"); setIsMobileMenuOpen(false) }}>Home</a></li>
+              <li className="dropdown-container"><Dropdown ref={mobileDropdownRef} isMobile={true} onCloseMenu={() => setIsMobileMenuOpen(false)} /></li>
+              <li><a href="#" onClick={() => { navigate("/chi-siamo"); setIsMobileMenuOpen(false) }}>Chi siamo</a></li>
+              <li><a href="#" onClick={() => { navigate("/contatti"); setIsMobileMenuOpen(false) }}>Contatti</a></li>
+            </ul>
+          </>
+        )}
+      </div>
     </nav>
-  );
-}
+  )
+})
 
-export default Navbar;
+export default Navbar

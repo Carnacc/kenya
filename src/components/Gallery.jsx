@@ -7,17 +7,20 @@ import gallery5 from "../images/gallery-5.jpg"
 import gallery6 from "../images/gallery-6.jpg"
 import gallery7 from "../images/gallery-7.jpg"
 import gallery8 from "../images/gallery-8.jpg"
-import { Link } from "lucide-react"
-import { useNavigate } from "react-router-dom"; // Importa useNavigate
+import mare from "../images/mare.jpg"
+import elefante from "../images/elefante.jpg"
+import image1a from "../images/image1a.jpg"
+import scimmia from "../images/scimmia.jpg"
+import { useNavigate } from "react-router-dom";
 
 
 const IMAGES = [
-  { src: safari1, alt: "Safari 1", title: "Savana al tramonto" },
-  { src: safari2, alt: "Safari 2", title: "Leoni nella riserva" },
+  { src: elefante, alt: "Safari 1", title: "Savana al tramonto" },
+  { src: image1a, alt: "Safari 2", title: "Leoni nella riserva" },
   { src: safari3, alt: "Safari 3", title: "Elefanti al fiume" },
-  { src: safari4, alt: "Safari 4", title: "Zebra nella prateria" },
-  { src: gallery8, alt: "Safari 5", title: "Vista panoramica" },
-  { src: gallery6, alt: "Safari 6", title: "Vita selvaggia" },
+  { src: mare, alt: "Safari 4", title: "Zebra nella prateria" },
+  { src: gallery6, alt: "Safari 5", title: "Vista panoramica" },
+  { src: scimmia, alt: "Safari 6", title: "Vita selvaggia" },
   { src: gallery7, alt: "Safari 7", title: "Tramonto africano" },
   { src: gallery5, alt: "Safari 8", title: "Paesaggio Kenya" },
 ]

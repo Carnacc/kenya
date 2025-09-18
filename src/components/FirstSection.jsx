@@ -1,13 +1,13 @@
 import React from "react";
 import "../css/Container.css";
-import guy from "../images/blackguy.jpg"; // Assicurati di avere il logo in questa posizione
+import guy from "../images/falcone.jpg"; // Assicurati di avere il logo in questa posizione
 
 function FirstSection() {
     return(
-                  <div className="first-section">
+        <div className="first-section">
                     <div className="first-section-left">
                       <div className="text-container">
-                        <h2>Mi presento! Piacere Falcone<br/>Ti porto a spasso tra i leoni</h2>
+                        <h2>Mi presento! <br/>Piacere Falcone</h2>
                         <img src={guy} alt="Safari" />
                       </div>
                     </div>
@@ -22,7 +22,7 @@ function FirstSection() {
                       <button className="first-section-cta">Prenota ora</button>
                     </div>
                     </div>
-                  </div>
+        </div>
     );
 }
 

@@ -1,75 +1,260 @@
 .navbar {
-    height: 60px;
-    position: fixed; /* Mantieni la navbar fissa in cima alla pagina */
-           /*  min-width: 1280px; **/ 
+    height: auto;
+    min-height: 60px;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 0;
-    padding-top: 20px;
+    padding: 10px 20px;
     background: transparent;
     backdrop-filter: blur(0.5px);
     color: white;
     z-index: 1000;
-    transition: transform 0.3s ease, opacity 0.3s ease; /* Aggiungi transizione per un effetto fluido */
-}
-
-.navbar.hidden {
-    transform: translateY(-100%); /* Nascondi la navbar sopra la pagina */
-    opacity: 0; /* Rendi la navbar trasparente quando è nascosta */
-}
-
-.navbar.visible {
-    transform: translateY(0); /* Ripristina la navbar alla sua posizione */
-    opacity: 1; /* Riporta la navbar visibile */
-}
-
-.logo {
-    flex: 1;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    box-sizing: border-box;
+  }
+  
+  .navbar.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  
+  .navbar.visible {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  /* Struttura a tre colonne con larghezze fisse */
+  .logo {
+    width: 25%;
     display: flex;
     align-items: center;
-    height: 100%;
-}
-
-.logo img {
+    justify-content: flex-start;
+  }
+  
+  .logo img {
     height: 70px;
-}
-
-.title {
-    flex: 2;
-    font-family: 'Lilita One', cursive;
+    width: auto;
+  }
+  
+  .title-container {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+  }
+  
+  .title {
+    font-family: "Lilita One", cursive;
     font-size: 34px;
-}
-
-.nav-links {
-    flex: 1;
+    margin: 0;
+    white-space: nowrap;
+  }
+  
+  .nav-links-container {
+    width: 25%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  .nav-links {
     list-style: none;
     display: flex;
     justify-content: flex-end;
     gap: 20px;
-    padding: 20px;
-    margin-right: 10px;
-}
-
-.nav-links li {
-    display: inline-block;
-}
-
-.nav-links a, .dropbtn {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .nav-links li {
+    display: flex;
+    white-space: nowrap;
+  }
+  
+  .nav-links a,
+  .dropbtn {
     color: white;
     text-decoration: none;
     font-size: 16px;
     background: none;
     border: none;
     cursor: pointer;
-}
-
-.nav-links a:hover {
+  }
+  
+  .nav-links a:hover {
     color: #b39200;
-}
-
-
+  }
+  
+  /* Hamburger menu */
+  .mobile-menu-toggle {
+    display: none;
+    cursor: pointer;
+    z-index: 1001;
+    margin-left: 20px;
+  }
+  
+  .hamburger {
+    width: 30px;
+    height: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .hamburger span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+  }
+  
+  .hamburger.active span:nth-child(1) {
+    transform: translateY(8.5px) rotate(45deg);
+  }
+  
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger.active span:nth-child(3) {
+    transform: translateY(-8.5px) rotate(-45deg);
+  }
+  
+  /* Media query per schermi molto grandi (oltre i 1440px) */
+  @media screen and (min-width: 1441px) {
+    .navbar {
+      padding: 15px 5%;
+    }
+  
+    .logo img {
+      height: 80px;
+    }
+  
+    .title {
+      font-size: 40px;
+    }
+  
+    .nav-links {
+      gap: 30px;
+    }
+  
+    .nav-links a,
+    .dropbtn {
+      font-size: 18px;
+    }
+  }
+  
+  /* Media query per desktop standard (1170px - 1440px) */
+  @media screen and (min-width: 1171px) and (max-width: 1440px) {
+    .navbar {
+      padding: 10px 3%;
+    }
+  }
+  
+  /* Nuovo breakpoint a 1170px per il menu hamburger */
+  @media screen and (max-width: 1170px) {
+    .mobile-menu-toggle {
+      display: block;
+    }
+  
+    .nav-links {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 300px;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.9);
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 30px;
+      transition: right 0.3s ease;
+      padding: 80px 0;
+      margin: 0;
+      overflow-y: auto; /* ✅ rende scrollabile */
+      overscroll-behavior: contain; /* ✅ previene il body scroll */
+    }
+    
+  
+    .nav-links.mobile-active {
+      right: 0;
+    }
+  
+    .nav-links li {
+      display: block;
+      text-align: center;
+    }
+  
+    .nav-links a,
+    .dropbtn {
+      font-size: 18px;
+    }
+  }
+  
+  /* Media query per tablet e dispositivi mobili in landscape */
+  @media screen and (max-width: 1023px) {
+    .title {
+      font-size: 28px;
+    }
+  
+    .logo img {
+      height: 60px;
+    }
+  }
+  
+  /* Media query per tablet */
+  @media screen and (max-width: 768px) {
+    .navbar {
+      padding: 10px 15px;
+    }
+  
+    .title {
+      font-size: 24px;
+    }
+  
+    .logo img {
+      height: 50px;
+    }
+  }
+  
+  /* Media query per dispositivi mobili */
+  @media screen and (max-width: 480px) {
+    .navbar {
+      padding: 8px 10px;
+    }
+  
+    .title {
+      font-size: 20px;
+    }
+  
+    .logo img {
+      height: 40px;
+    }
+  
+    .nav-links {
+      width: 80%;
+    }
+  }
+  
+  /* Media query per dispositivi molto piccoli */
+  @media screen and (max-width: 320px) {
+    .title {
+      font-size: 18px;
+    }
+  
+    .logo img {
+      height: 35px;
+    }
+  
+    .nav-links {
+      width: 90%;
+    }
+  }
+  

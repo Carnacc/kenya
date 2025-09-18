@@ -1,0 +1,212 @@
+.excursion-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 60px 40px 40px;
+  background: white;
+  align-items: center;
+}
+
+.excursion-left,
+.excursion-right {
+  height: auto; /* Rimosso l'altezza fissa */
+  min-height: 400px; /* Altezza minima più adattabile */
+}
+
+.excursion-left {
+  flex: 1;
+  min-width: 300px;
+  max-width: 600px;
+  text-align: left;
+}
+
+.excursion-subtitle {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.excursion-title {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 0 0 20px 0;
+  color: #000;
+}
+
+.excursion-text {
+  font-size: 18px;
+  font-weight: 300;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.excursion-buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 400;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-dark {
+  background-color: #0b114f;
+  color: white;
+  padding: 12px 40px;
+}
+
+.btn-dark:hover {
+  background-color: #060c3a;
+}
+
+.btn-whatsapp {
+  background-color: #25d366;
+  color: white;
+}
+
+.btn-whatsapp:hover {
+  background-color: #1ebe5b;
+}
+
+.excursion-right {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  align-items: center;
+}
+
+.excursion-right img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  height: auto; /* Rimosso l'altezza fissa */
+  max-height: 550px; /* Altezza massima invece di fissa */
+}
+
+/* Media queries per la responsività */
+@media screen and (max-width: 1024px) {
+  .excursion-card {
+    padding: 50px 30px 30px;
+    gap: 30px;
+  }
+
+  .excursion-title {
+    font-size: 32px;
+  }
+
+  .excursion-text {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .excursion-card {
+    flex-direction: column;
+    padding: 40px 25px 25px;
+    gap: 25px;
+  }
+
+  .excursion-left,
+  .excursion-right {
+    max-width: 100%;
+    min-height: auto;
+  }
+
+  .excursion-title {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+
+  .excursion-text {
+    margin-bottom: 25px;
+  }
+
+  .excursion-right {
+    margin: 0 -25px; /* Estende l'immagine oltre i padding del contenitore */
+    width: calc(100% + 50px); /* Compensa i margini negativi */
+  }
+
+  .excursion-right img {
+    max-height: 450px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 15px;
+  }
+
+  .btn-dark {
+    padding: 10px 30px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .excursion-card {
+    padding: 30px 20px 20px;
+    gap: 20px;
+  }
+
+  .excursion-subtitle {
+    font-size: 12px;
+  }
+
+  .excursion-title {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+
+  .excursion-text {
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+
+  .excursion-right {
+    margin: 0 -20px; /* Aggiorna i margini negativi in base al padding */
+    width: calc(100% + 40px);
+  }
+
+  .excursion-buttons {
+    gap: 15px;
+    justify-content: center;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .excursion-card {
+    padding: 25px 15px 15px;
+  }
+
+  .excursion-title {
+    font-size: 22px;
+  }
+
+  .excursion-text {
+    font-size: 14px;
+  }
+
+  .excursion-right {
+    margin: 0 -15px; /* Aggiorna i margini negativi in base al padding */
+    width: calc(100% + 30px);
+  }
+}

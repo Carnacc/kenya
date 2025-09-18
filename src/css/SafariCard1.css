@@ -1,0 +1,255 @@
+.safari-card-container {
+  width: 100%;
+  height: 550px;
+  display: flex; /* Due colonne affiancate */
+  overflow: hidden; /* Evita che i contenuti sforino */
+  box-sizing: border-box;
+}
+
+/* Colonna sinistra, suddivisa verticalmente in testo (in alto) e immagine (in basso) */
+.safari-card-left {
+  flex: 1; /* Occupa la metà sinistra */
+  display: flex;
+  flex-direction: column; /* Dispone testo e immagine in verticale */
+  min-height: 0; /* Per sicurezza, quando si usano flex annidate */
+  background-color: white;
+}
+
+/* --- Testo in alto --- */
+.safari-card-text-container {
+  flex: 1; /* Usa lo spazio rimanente in verticale */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Sposta il testo in alto */
+  align-items: flex-start;
+  padding-left: 50px;
+  padding-top: 50px;
+  padding-right: 20px;
+  text-align: left;
+  box-sizing: border-box;
+  /* Se il testo diventasse troppo lungo, puoi aggiungere uno scroll:
+       overflow: auto;  */
+}
+
+.safari-card-title {
+  font-size: 36px;
+  font-weight: 300;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.safari-card-subtitle {
+  font-size: 18px;
+  font-weight: 300;
+  margin-bottom: 20px;
+  color: #666;
+  max-width: 570px;
+}
+
+.safari-card-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.safari-card-button:hover {
+  background-color: #555;
+}
+
+/* --- Seconda immagine in basso a sinistra --- */
+.safari-card-lower-image {
+  /* Altezza fissa in modo che non sfori i 600px totali.
+       Regola a tuo piacere (ad es. 150px, 200px, 250px) */
+  height: 200px;
+  overflow: hidden; /* Nasconde eventuale eccesso */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.safari-card-lower-image-file {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Copre tutto lo spazio orizzontalmente */
+}
+
+/* --- Colonna destra, immagine principale --- */
+.safari-card-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.safari-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Media queries per la responsività - MANTENENDO DUE COLONNE */
+@media screen and (max-width: 1200px) {
+  .safari-card-title {
+    font-size: 32px;
+  }
+
+  .safari-card-subtitle {
+    font-size: 16px;
+    max-width: 500px;
+  }
+
+  .safari-card-text-container {
+    padding-left: 40px;
+    padding-top: 40px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .safari-card-container {
+    height: 500px; /* Riduzione dell'altezza complessiva */
+  }
+
+  .safari-card-title {
+    font-size: 28px;
+  }
+
+  .safari-card-subtitle {
+    font-size: 15px;
+    max-width: 450px;
+  }
+
+  .safari-card-text-container {
+    padding-left: 30px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+  }
+
+  .safari-card-lower-image {
+    height: 180px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .safari-card-container {
+    height: 450px; /* Riduzione dell'altezza complessiva */
+  }
+
+  .safari-card-title {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+
+  .safari-card-subtitle {
+    font-size: 14px;
+    margin-bottom: 15px;
+    max-width: 100%;
+  }
+
+  .safari-card-text-container {
+    padding: 20px 15px;
+  }
+
+  .safari-card-button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .safari-card-lower-image {
+    height: 160px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .safari-card-container {
+    height: 450px; /* Riduzione dell'altezza complessiva */
+  }
+
+  .safari-card-title {
+    font-size: 20px;
+    margin-bottom: 6px;
+  }
+
+  .safari-card-subtitle {
+    font-size: 12px;
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+
+  .safari-card-text-container {
+    padding: 15px 10px;
+  }
+
+  .safari-card-button {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .safari-card-lower-image {
+    height: 140px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .safari-card-container {
+    height: 400px; /* Riduzione dell'altezza complessiva */
+  }
+
+  .safari-card-title {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+
+  .safari-card-subtitle {
+    font-size: 11px;
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .safari-card-text-container {
+    padding: 12px 8px;
+  }
+
+  .safari-card-button {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+
+  .safari-card-lower-image {
+    height: 120px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .safari-card-container {
+    height: 350px; /* Riduzione dell'altezza complessiva */
+  }
+
+  .safari-card-title {
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+
+  .safari-card-subtitle {
+    font-size: 10px;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+
+  .safari-card-text-container {
+    padding: 10px 6px;
+  }
+
+  .safari-card-button {
+    padding: 4px 8px;
+    font-size: 10px;
+  }
+
+  .safari-card-lower-image {
+    height: 100px;
+  }
+}
